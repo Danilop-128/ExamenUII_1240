@@ -1,43 +1,45 @@
 import 'package:flutter/material.dart';
+import 'package:lopezexamen/pantalla_inicio.dart';
+import 'package:lopezexamen/pantalla_bottom_nav_bar.dart';
+import 'package:lopezexamen/pantalla_rich_text.dart';
+import 'package:lopezexamen/pantalla_list_wheel_scroll_view.dart';
+import 'package:lopezexamen/pantalla_rotated_box.dart';
+import 'package:lopezexamen/pantalla_stateful_widget.dart';
+import 'package:lopezexamen/pantalla_about_dialog.dart';
+import 'package:lopezexamen/pantalla_range_slider.dart';
+import 'package:lopezexamen/pantalla_animated_padding.dart';
+import 'package:lopezexamen/pantalla_draggable.dart';
+import 'package:lopezexamen/pantalla_null_aware_operators.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(MiExamen());
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  // This widget is the root of your application.
+class MiExamen extends StatefulWidget {
+  const MiExamen({Key? key}) : super(key: key);
+
+  @override
+  State<MiExamen> createState() => _MiExamenState();
+}
+
+class _MiExamenState extends State<MiExamen> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
-      theme: ThemeData(
-        // useMaterial3: false,
-        primarySwatch: Colors.blue,
-      ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
-        ),
-      ),
+      debugShowCheckedModeBanner: false,
+      title: 'Entre Paginas Routes',
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const PantallaInicio(),
+        '/pantalla2': (context) => const PantallaBottomNavBar(),
+        '/pantalla3': (context) => const PantallaRichText(),
+        '/pantalla4': (context) => const PantallaListWheelScrollView(),
+        '/pantalla5': (context) => const PantallaRotatedBox(),
+        //'/pantalla6': (context) => const PantallaStatefulWidget(),
+        '/pantalla7': (context) => const PantallaAboutDialog(),
+        '/pantalla8': (context) => const PantallaRangeSlider(),
+        '/pantalla9': (context) => const PantallaAnimatedPadding(),
+        '/pantalla10': (context) => const PantallaDraggable(),
+        '/pantalla11': (context) => PantallaNullAwareOperators(),
+      },
     );
   }
 }
